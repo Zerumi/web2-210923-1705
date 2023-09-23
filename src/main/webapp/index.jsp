@@ -55,7 +55,7 @@
           </form>
         </div>
         <div id="graph-container" class="blured-container round-container margin">
-          <canvas id="graph" width="500px" height="500px"></canvas>
+          <div id="graph"></div>
         </div>
         <div id="result-table-container" class="blured-container margin">
           <table id="result-table">
@@ -77,6 +77,8 @@
         <p>Copyright &#x00A9 Zerumi, 2023. Licensed under <a href="../LICENSE">ISC license</a>. Plagiarism is prohibited.</p>
       </div>
     </div>
+    <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="scripts/graph.js"></script>
     <script src="scripts/validation.js"></script>
     <script src="scripts/fix-placeholder.js"></script>
   </body>

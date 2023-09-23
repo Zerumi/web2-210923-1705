@@ -211,6 +211,8 @@ th, td {
 }
 
 #graph {
+    width: 500px;
+    height: 500px;
     padding: 2px;
 }
 
