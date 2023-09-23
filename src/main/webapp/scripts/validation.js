@@ -44,8 +44,6 @@ y_select.addEventListener("input", () => {
     }
 });
 
-// on r selected
-// drawBatmanByR(r); // different logic intended
 const radioButtons = document.querySelectorAll('input[name="r-select"]');
 
 // Add event listener for each radio button
@@ -61,6 +59,27 @@ radioButtons.forEach((radioButton) => {
         }
     });
 });
+
+// Get all buttons with the name attribute "x-select"
+const buttons = document.querySelectorAll('input[name="x-select"]');
+
+// Add a click event listener to each button
+buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+        // Deselect all buttons
+        buttons.forEach((btn) => {
+            btn.classList.remove('selected');
+        });
+
+        // Select the clicked button
+        this.classList.add('selected');
+
+        // You can perform any actions you need with the selected value here
+        const selectedValue = this.value;
+        console.log(`Selected value: ${selectedValue}`);
+    });
+});
+
 
 // This defines what happens when the user tries to submit the data
 form.addEventListener("submit", (event) => {
@@ -86,6 +105,8 @@ form.addEventListener("submit", (event) => {
         y_error.textContent = STRING_EMPTY;
         y_error.className = ERROR_CLASS_ID;
     }
+
+
 
     if (isValidY && isAcceptableY) {
         //drawPoint(x_select.value, y, r);

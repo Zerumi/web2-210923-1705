@@ -154,6 +154,15 @@ th, td {
     gap: 2px;
 }
 
+input[type=button] {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+input[type=button].selected {
+    color: #00ffe9;
+    background-color: #268078;
+}
+
 .round-container {
     border: solid 2px black;
     border-radius: 4px;
