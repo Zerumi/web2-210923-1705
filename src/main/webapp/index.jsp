@@ -4,7 +4,7 @@
   <meta name="viewport" content="initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <link rel="stylesheet" href="styles/style.css">
-  <title>web1-310823-1611</title>
+  <title>web2-210923-1705</title>
 </head>
   <body>
     <div id="container" class="margin">
@@ -36,12 +36,12 @@
               <label for="y-select">Enter Y:</label>
               <div id="y-select-input" class="select-input-container">
                 <input type="text" name="y-select" id="y-select" class="input-select"
-                       placeholder="Should be between -5 and 3" required />
+                       placeholder="Should be between -3 and 5" required />
                 <span class="error" aria-live="polite"></span>
               </div>
             </div>
             <div id="r-select-container" class="select-container margin">
-              <label for="r-select-input">Enter R:</label>
+              <label for="r-select-input">Choose R:</label>
               <div id="r-select-input" class="select-radio-container">
                 <input type="radio" id="r-select1" name="r-select" value="1" required />
                 <label for="r-select1">1</label>

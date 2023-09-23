@@ -29,12 +29,12 @@ window.addEventListener("load", () => {
 y_select.addEventListener("input", () => {
     const y = +y_select.value;
 
-    console.log(y_select.value.includes("3.") && containsNumberAfterDecimal(y_select.value));
+    //console.log(y_select.value.includes("-3.") && containsNumberAfterDecimal(y_select.value));
 
     const isValid = y_select.value.length === 0 || y_select.value === "-"
-        || (!Number.isNaN(y) && y >= -5 && y <= 3)
-        && !(y_select.value.includes("3.") && containsNumberAfterDecimal(y_select.value))
-        && !(y_select.value.includes("-5.") && containsNumberAfterDecimal(y_select.value));
+        || (!Number.isNaN(y) && y >= -3 && y <= 5)
+        && !(y_select.value.includes("-3.") && containsNumberAfterDecimal(y_select.value))
+        && !(y_select.value.includes("5.") && containsNumberAfterDecimal(y_select.value));
     if (isValid) {
         y_select.className = VALID_CLASS_ID;
         y_error.textContent = STRING_EMPTY;
@@ -46,7 +46,21 @@ y_select.addEventListener("input", () => {
 
 // on r selected
 // drawBatmanByR(r); // different logic intended
+const radioButtons = document.querySelectorAll('input[name="r-select"]');
 
+// Add event listener for each radio button
+radioButtons.forEach((radioButton) => {
+    radioButton.addEventListener('change', function () {
+        // Check if this radio button is selected
+        if (this.checked) {
+            const selectedValue = this.value;
+            console.log(`Selected value: ${selectedValue}`);
+
+            // You can perform any actions you need with the selected value here
+            drawBatmanByR(+selectedValue);
+        }
+    });
+});
 
 // This defines what happens when the user tries to submit the data
 form.addEventListener("submit", (event) => {
@@ -56,16 +70,16 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const isValidY = y_select.value.length === 0 || !Number.isNaN(y);
-    const isAcceptableY = y >= -5 && y <= 3
-        && !(y_select.value.includes("3.") && containsNumberAfterDecimal(y_select.value))
-        && !(y_select.value.includes("-5.") && containsNumberAfterDecimal(y_select.value));
+    const isAcceptableY = y >= -3 && y <= 5
+        && !(y_select.value.includes("-3.") && containsNumberAfterDecimal(y_select.value))
+        && !(y_select.value.includes("5.") && containsNumberAfterDecimal(y_select.value));
     if (!isValidY) {
         y_select.className = INVALID_CLASS_ID;
         y_error.textContent = "Expected as number, like -1";
         y_error.className = ERROR_CLASS_ID_ACTIVATE;
     } else if (!isAcceptableY) {
         y_select.className = INVALID_CLASS_ID;
-        y_error.textContent = "Number should be between -5 and 3";
+        y_error.textContent = "Number should be between -3 and 5";
         y_error.className = ERROR_CLASS_ID_ACTIVATE;
     } else {
         y_select.className = VALID_CLASS_ID;
