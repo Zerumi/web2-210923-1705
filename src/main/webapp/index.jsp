@@ -9,7 +9,7 @@
   <body>
     <div id="container" class="margin">
       <div id="header" class="blured-container round-container margin">
-        <p>web1-310823-1611</p>
+        <p>web2-210923-1705</p>
         <p>by Afanasyev Kirill Aleksandrovich, group no. P3206</p>
         <p>Variant no. 1611</p>
       </div>
@@ -19,19 +19,18 @@
           <p><i>Notice!</i> <b>Every</b> parameter <b>should be filled!</b></p>
           <form method="get">
             <div id="x-select-container" class="select-container margin">
-              <label for="x-select">Choose X:</label>
-              <select name="x-select" id="x-select" required>
-                <option value="">-- Please choose an option--</option>
-                <option value="-4">-4</option>
-                <option value="-3">-3</option>
-                <option value="-2">-2</option>
-                <option value="-1">-1</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
+              <label for="x-select-input">Choose X:</label>
+                <div id="x-select-input">
+                  <input type="button" name="x-select" value="-5" />
+                  <input type="button" name="x-select" value="-4" />
+                  <input type="button" name="x-select" value="-3" />
+                  <input type="button" name="x-select" value="-2" />
+                  <input type="button" name="x-select" value="-1" />
+                  <input type="button" name="x-select" value="0" />
+                  <input type="button" name="x-select" value="1" />
+                  <input type="button" name="x-select" value="2" />
+                  <input type="button" name="x-select" value="3" />
+                </div>
             </div>
             <div id="y-select-container" class="select-container margin">
               <label for="y-select">Enter Y:</label>
@@ -42,11 +41,18 @@
               </div>
             </div>
             <div id="r-select-container" class="select-container margin">
-              <label for="r-select">Enter R:</label>
-              <div id="r-select-input" class="select-input-container">
-                <input type="text" name="r-select" id="r-select" class="input-select"
-                       placeholder="Should be between 2 and 5" required />
-                <span class="error" aria-live="polite"></span>
+              <label for="r-select-input">Enter R:</label>
+              <div id="r-select-input" class="select-radio-container">
+                <input type="radio" id="r-select1" name="r-select" value="1" required />
+                <label for="r-select1">1</label>
+                <input type="radio" id="r-select2" name="r-select" value="2" />
+                <label for="r-select2">2</label>
+                <input type="radio" id="r-select3" name="r-select" value="3" />
+                <label for="r-select3">3</label>
+                <input type="radio" id="r-select4" name="r-select" value="4" />
+                <label for="r-select4">4</label>
+                <input type="radio" id="r-select5" name="r-select" value="5" />
+                <label for="r-select5">5</label>
               </div>
             </div>
             <div id="submit-container" class="margin">

@@ -146,6 +146,14 @@ th, td {
     justify-content: flex-end;
 }
 
+.select-radio-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+    gap: 2px;
+}
+
 .round-container {
     border: solid 2px black;
     border-radius: 4px;

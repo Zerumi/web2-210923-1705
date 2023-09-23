@@ -5,12 +5,11 @@ const ERROR_CLASS_ID_ACTIVATE = "error active";
 const STRING_EMPTY = "";
 
 const form = document.querySelector("form");
-const x_select = document.getElementById("x-select");
+//const x_select = document.getElementById("x-select");
 const y_select  = document.getElementById("y-select");
-const r_select = document.getElementById("r-select");
+//const r_select = document.getElementById("r-select");
 
 const y_error = y_select.nextElementSibling;
-const r_error = r_select.nextElementSibling;
 
 function containsNumberAfterDecimal(inputString) {
     // Define a regular expression pattern that matches a decimal point followed by a number from 1 to 9.
@@ -23,9 +22,6 @@ function containsNumberAfterDecimal(inputString) {
 window.addEventListener("load", () => {
     const isValidY = y_select.value.length === 0 || !Number.isNaN(+y_select.value);
     y_select.className = isValidY ? VALID_CLASS_ID : INVALID_CLASS_ID;
-
-    const isValidR = y_select.value.length === 0 || !Number.isNaN(+r_select.value);
-    r_select.className = isValidR ? VALID_CLASS_ID : INVALID_CLASS_ID;
 });
 
 // This defines what happens when the user types in the field
@@ -48,28 +44,13 @@ y_select.addEventListener("input", () => {
     }
 });
 
-r_select.addEventListener("input", () => {
-    const r = +r_select.value;
+// on r selected
+// drawBatmanByR(r); // different logic intended
 
-    const isValid = r_select.value.length === 0 || y_select.value === "-"
-        || (!Number.isNaN(r) && r >= 2 && r <= 5)
-        && !(r_select.value.includes("2.") && containsNumberAfterDecimal(r_select.value))
-        && !(r_select.value.includes("5.") && containsNumberAfterDecimal(r_select.value));
-    if (isValid) {
-        r_select.className = VALID_CLASS_ID;
-        r_error.textContent = STRING_EMPTY;
-        r_error.className = ERROR_CLASS_ID;
-
-        drawShapesByR(r); // different logic intended
-    } else {
-        r_select.className = INVALID_CLASS_ID;
-    }
-});
 
 // This defines what happens when the user tries to submit the data
 form.addEventListener("submit", (event) => {
     const y = +y_select.value;
-    const r = +r_select.value;
 
     // no default sending data to form (it will be done using xmlhttp if js is activated)
     event.preventDefault();
@@ -92,26 +73,10 @@ form.addEventListener("submit", (event) => {
         y_error.className = ERROR_CLASS_ID;
     }
 
-    const isValidR = r_select.value.length === 0 || !Number.isNaN(r);
-    const isAcceptableR = r >= 2 && r <= 5
-        && !(r_select.value.includes("2.") && containsNumberAfterDecimal(r_select.value))
-        && !(r_select.value.includes("5.") && containsNumberAfterDecimal(r_select.value));
-    if (!isValidR) {
-        r_select.className = INVALID_CLASS_ID;
-        r_error.textContent = "Expected as number, like 3";
-        r_error.className = ERROR_CLASS_ID_ACTIVATE;
-    } else if (!isAcceptableR) {
-        r_select.className = INVALID_CLASS_ID;
-        r_error.textContent = "Number should be between 2 and 5";
-        r_error.className = ERROR_CLASS_ID_ACTIVATE;
-    } else {
-        r_select.className = VALID_CLASS_ID;
-        r_error.textContent = STRING_EMPTY;
-        r_error.className = ERROR_CLASS_ID;
-    }
+    if (isValidY && isAcceptableY) {
+        //drawPoint(x_select.value, y, r);
+        //getIsIntersects(x_select.value, y_select.value, r_select.value);
 
-    if (isValidY && isValidR && isAcceptableY && isAcceptableR) {
-        drawPoint(x_select.value, y, r);
-        getIsIntersects(x_select.value, y_select.value, r_select.value);
+        // send data to back
     }
 });
