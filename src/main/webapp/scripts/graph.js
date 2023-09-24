@@ -61,3 +61,13 @@ function drawBatmanByR(r) {
     calculator.setExpression({id: '8', latex: 'r=' + r, lineOpacity: 0});
 }
 
+function drawPoint(x, y, r) {
+    drawBatmanByR(r);
+    calculator.setExpression({
+        id: 'point',
+        latex: '(' + x + ', ' + y + ')',
+        color: Desmos.Colors.RED
+    });
+}
+
+

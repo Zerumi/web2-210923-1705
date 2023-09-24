@@ -20,16 +20,19 @@
           <form method="get">
             <div id="x-select-container" class="select-container margin">
               <label for="x-select-input">Choose X:</label>
-                <div id="x-select-input">
-                  <input type="button" name="x-select" value="-5" />
-                  <input type="button" name="x-select" value="-4" />
-                  <input type="button" name="x-select" value="-3" />
-                  <input type="button" name="x-select" value="-2" />
-                  <input type="button" name="x-select" value="-1" />
-                  <input type="button" name="x-select" value="0" />
-                  <input type="button" name="x-select" value="1" />
-                  <input type="button" name="x-select" value="2" />
-                  <input type="button" name="x-select" value="3" />
+                <div class="select-input-container">
+                  <div id="x-select-input" class="select-radio-container">
+                    <input type="button" name="x-select" value="-5" />
+                    <input type="button" name="x-select" value="-4" />
+                    <input type="button" name="x-select" value="-3" />
+                    <input type="button" name="x-select" value="-2" />
+                    <input type="button" name="x-select" value="-1" />
+                    <input type="button" name="x-select" value="0" />
+                    <input type="button" name="x-select" value="1" />
+                    <input type="button" name="x-select" value="2" />
+                    <input type="button" name="x-select" value="3" />
+                  </div>
+                  <span id="x-select-error" class="error" aria-live="polite"></span>
                 </div>
             </div>
             <div id="y-select-container" class="select-container margin">

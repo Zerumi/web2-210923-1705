@@ -9,6 +9,7 @@ const form = document.querySelector("form");
 const y_select  = document.getElementById("y-select");
 //const r_select = document.getElementById("r-select");
 
+const x_error = document.getElementById('x-select-error');
 const y_error = y_select.nextElementSibling;
 
 function containsNumberAfterDecimal(inputString) {
@@ -77,6 +78,9 @@ buttons.forEach((button) => {
         // You can perform any actions you need with the selected value here
         const selectedValue = this.value;
         console.log(`Selected value: ${selectedValue}`);
+
+        x_error.textContent = STRING_EMPTY;
+        x_error.className = ERROR_CLASS_ID;
     });
 });
 
@@ -106,12 +110,39 @@ form.addEventListener("submit", (event) => {
         y_error.className = ERROR_CLASS_ID;
     }
 
+    let tempX;
+    let tempIsSelectedX = false;
 
+    buttons.forEach((button) => {
+        if (button.classList.contains('selected')) {
+            tempIsSelectedX = true;
+            tempX = button.value;
+        }
+    });
 
-    if (isValidY && isAcceptableY) {
-        //drawPoint(x_select.value, y, r);
+    const isSelectedX = tempIsSelectedX;
+    if (!isSelectedX) {
+        x_error.textContent = "Please, choose some option above!";
+        x_error.className = ERROR_CLASS_ID_ACTIVATE;
+    } else {
+        x_error.textContent = STRING_EMPTY;
+        x_error.className = ERROR_CLASS_ID;
+    }
+
+    const x = tempX;
+
+    let tempR;
+
+    radioButtons.forEach((radioButton) => {
+        if (radioButton.checked) {
+            tempR = radioButton.value;
+        }
+    });
+
+    const r = tempR;
+
+    if (isValidY && isAcceptableY && isSelectedX) {
+        drawPoint(x, y, r);
         //getIsIntersects(x_select.value, y_select.value, r_select.value);
-
-        // send data to back
     }
 });
