@@ -90,6 +90,7 @@
       </div>
     </div>
     <script src="scripts/fix-placeholder.js"></script>
+    <script src="scripts/get-intersection.js"></script>
     <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <script src="scripts/graph.js"></script>
     <script src="scripts/validation.js"></script>

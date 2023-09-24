@@ -1,5 +1,5 @@
-let elt = document.getElementById('graph');
-let calculator = Desmos.GraphingCalculator(elt, {
+const elt = document.getElementById('graph');
+const calculator = Desmos.GraphingCalculator(elt, {
     keypad: false,
     expressions: false,
     settingsMenu: false,
@@ -64,10 +64,54 @@ function drawBatmanByR(r) {
 function drawPoint(x, y, r) {
     drawBatmanByR(r);
     calculator.setExpression({
-        id: 'point',
+        id: '9',
         latex: '(' + x + ', ' + y + ')',
         color: Desmos.Colors.RED
     });
 }
 
+function inRectangle(point, rect) {
+    return (
+        point.x >= rect.left &&
+        point.x <= rect.right &&
+        point.y <= rect.top &&
+        point.y >= rect.bottom
+    )
+}
 
+elt.addEventListener('click', function (evt) {
+
+    let tempIsSelected = false;
+    let tempR;
+
+    radioButtons.forEach(rb => {
+       if (rb.checked) {
+           tempIsSelected = true;
+           tempR = rb.value;
+       }
+    });
+
+    const isSelectedR = tempIsSelected;
+
+    if (!isSelectedR) {
+        r_error.textContent = "Please, choose some option above!";
+        r_error.className = ERROR_CLASS_ID_ACTIVATE;
+        return;
+    }
+
+    const r = tempR;
+
+    const rect = elt.getBoundingClientRect();
+    const x = evt.clientX - rect.left;
+    const y = evt.clientY - rect.top;
+    // Note, pixelsToMath expects x and y to be referenced to the top left of
+    // the calculator's parent container.
+    const mathCoordinates = calculator.pixelsToMath({x: x, y: y});
+
+    if (!inRectangle(mathCoordinates, calculator.graphpaperBounds.mathCoordinates)) return;
+
+    console.log('setting expression...');
+    console.log(mathCoordinates);
+
+    send_intersection_rq(mathCoordinates.x, mathCoordinates.y, r);
+});

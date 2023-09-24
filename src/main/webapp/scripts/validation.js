@@ -11,6 +11,7 @@ const y_select  = document.getElementById("y-select");
 
 const x_error = document.getElementById('x-select-error');
 const y_error = y_select.nextElementSibling;
+const r_error = document.getElementById('r-select-error');
 
 function containsNumberAfterDecimal(inputString) {
     // Define a regular expression pattern that matches a decimal point followed by a number from 1 to 9.
@@ -54,6 +55,9 @@ radioButtons.forEach((radioButton) => {
         if (this.checked) {
             const selectedValue = this.value;
             console.log(`Selected value: ${selectedValue}`);
+
+            r_error.textContent = STRING_EMPTY;
+            r_error.className = ERROR_CLASS_ID;
 
             // You can perform any actions you need with the selected value here
             drawBatmanByR(+selectedValue);
@@ -148,7 +152,6 @@ form.addEventListener("submit", (event) => {
     const r = tempR;
 
     if (isValidY && isAcceptableY && isSelectedX) {
-        drawPoint(x, y, r);
-        //getIsIntersects(x_select.value, y_select.value, r_select.value);
+        send_intersection_rq(x, y, r);
     }
 });
