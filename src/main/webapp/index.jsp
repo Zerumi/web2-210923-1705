@@ -17,7 +17,7 @@
         <div id="choose" class="blured-container round-container margin">
           <p>Enter parameters:</p>
           <p><i>Notice!</i> <b>Every</b> parameter <b>should be filled!</b></p>
-          <form method="get">
+          <form action="${pageContext.request.contextPath}/controller" method="get">
             <div id="x-select-container" class="select-container margin">
               <label for="x-select-input">Choose X:</label>
                 <div class="select-input-container">
