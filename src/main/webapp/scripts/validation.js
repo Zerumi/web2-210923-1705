@@ -90,7 +90,7 @@ buttons.forEach((button) => {
 
 
 // This defines what happens when the user tries to submit the data
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", () => {
     const y = +y_select.value;
 
     // no default sending data to form (it will be done using xmlhttp if js is activated)
