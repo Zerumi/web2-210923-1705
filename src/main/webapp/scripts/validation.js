@@ -90,11 +90,11 @@ buttons.forEach((button) => {
 
 
 // This defines what happens when the user tries to submit the data
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (event) => {
     const y = +y_select.value;
 
     // no default sending data to form (it will be done using xmlhttp if js is activated)
-    // event.preventDefault();
+    event.preventDefault();
 
     const isValidY = y_select.value.length === 0 || !Number.isNaN(y);
     const isAcceptableY = y >= -3 && y <= 5
