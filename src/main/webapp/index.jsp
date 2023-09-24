@@ -45,17 +45,20 @@
             </div>
             <div id="r-select-container" class="select-container margin">
               <label for="r-select-input">Choose R:</label>
-              <div id="r-select-input" class="select-radio-container">
-                <input type="radio" id="r-select1" name="r-select" value="1" required />
-                <label for="r-select1">1</label>
-                <input type="radio" id="r-select2" name="r-select" value="2" />
-                <label for="r-select2">2</label>
-                <input type="radio" id="r-select3" name="r-select" value="3" />
-                <label for="r-select3">3</label>
-                <input type="radio" id="r-select4" name="r-select" value="4" />
-                <label for="r-select4">4</label>
-                <input type="radio" id="r-select5" name="r-select" value="5" />
-                <label for="r-select5">5</label>
+              <div class="select-input-container">
+                <div id="r-select-input" class="select-radio-container">
+                  <input type="radio" id="r-select1" name="r-select" value="1" required />
+                  <label for="r-select1">1</label>
+                  <input type="radio" id="r-select2" name="r-select" value="2" />
+                  <label for="r-select2">2</label>
+                  <input type="radio" id="r-select3" name="r-select" value="3" />
+                  <label for="r-select3">3</label>
+                  <input type="radio" id="r-select4" name="r-select" value="4" />
+                  <label for="r-select4">4</label>
+                  <input type="radio" id="r-select5" name="r-select" value="5" />
+                  <label for="r-select5">5</label>
+                </div>
+                <span id="r-select-error" class="error" aria-live="polite"></span>
               </div>
             </div>
             <div id="submit-container" class="margin">
@@ -86,9 +89,9 @@
         <p>Copyright &#x00A9 Zerumi, 2023. Licensed under <a href="../LICENSE">ISC license</a>. Plagiarism is prohibited.</p>
       </div>
     </div>
+    <script src="scripts/fix-placeholder.js"></script>
     <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <script src="scripts/graph.js"></script>
     <script src="scripts/validation.js"></script>
-    <script src="scripts/fix-placeholder.js"></script>
   </body>
 </html>

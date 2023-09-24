@@ -122,6 +122,12 @@ form.addEventListener("submit", (event) => {
 
     const isSelectedX = tempIsSelectedX;
     if (!isSelectedX) {
+        buttons.forEach(async (b) => {
+           b.style.backgroundColor = "rgba(255,51,51,0.97)";
+           await new Promise(r => setTimeout(r, 300));
+           b.style.backgroundColor = "";
+        });
+
         x_error.textContent = "Please, choose some option above!";
         x_error.className = ERROR_CLASS_ID_ACTIVATE;
     } else {
