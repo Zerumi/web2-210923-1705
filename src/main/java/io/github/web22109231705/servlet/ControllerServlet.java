@@ -1,4 +1,4 @@
-package io.github.web22109231705;
+package io.github.web22109231705.servlet;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

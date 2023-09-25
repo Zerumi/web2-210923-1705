@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="points" value="${sessionScope.get(\"points\")}" />
+<jsp:useBean id="points" class="io.github.web22109231705.model.UserAreaDatas" scope="session" />
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
 <!DOCTYPE html>
@@ -85,8 +87,6 @@
               </tr>
             </thead>
             <tbody>
-              <c:set var="points" value="${sessionScope.get(\"points\")}" />
-              <jsp:useBean id="points" class="io.github.web22109231705.model.UserAreaDatas" scope="session" />
               <c:forEach var="areaData" items="${points.areaDataList}">
                   <tr>
                     <td>${areaData.x}</td>
@@ -96,7 +96,7 @@
                     <td>${areaData.calculatedAt.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))}</td>
                     <td>${areaData.calculationTime}ns</td>
                   </tr>
-                </c:forEach>
+              </c:forEach>
             </tbody>
           </table>
         </div>
@@ -111,5 +111,10 @@
     <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <script src="scripts/graph.js"></script>
     <script src="scripts/validation.js"></script>
+    <script type="text/javascript">
+      <c:forEach var="areaData" items="${points.areaDataList}">
+        drawPointXYRes(${areaData.x}, ${areaData.y}, ${areaData.result});
+      </c:forEach>
+    </script>
   </body>
 </html>

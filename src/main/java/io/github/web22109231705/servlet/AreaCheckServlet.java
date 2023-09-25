@@ -1,4 +1,4 @@
-package io.github.web22109231705;
+package io.github.web22109231705.servlet;
 
 import io.github.web22109231705.model.AreaData;
 import io.github.web22109231705.model.UserAreaDatas;

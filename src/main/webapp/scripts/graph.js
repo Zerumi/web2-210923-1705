@@ -63,11 +63,22 @@ function drawBatmanByR(r) {
 
 function drawPoint(x, y, r) {
     drawBatmanByR(r);
+    drawPointXY(x, y);
+}
+
+function drawPointXY(x, y) {
     calculator.setExpression({
-        id: '9',
+        id: x + '' + y,
         latex: '(' + x + ', ' + y + ')',
         color: Desmos.Colors.RED
     });
+}
+
+function drawPointXYRes(x, y, result) {calculator.setExpression({
+    id: x + '' + y,
+    latex: '(' + x + ', ' + y + ')',
+    color: result ? Desmos.Colors.PURPLE : Desmos.Colors.BLUE
+});
 }
 
 function inRectangle(point, rect) {
