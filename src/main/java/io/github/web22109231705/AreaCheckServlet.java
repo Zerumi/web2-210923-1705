@@ -18,7 +18,20 @@ public class AreaCheckServlet extends HttpServlet {
         final String y = request.getParameter("y-select");
         final String r = request.getParameter("r-select");
 
-        boolean result = checkArea(x,y,r);
+        final double dx;
+        final double dy;
+        final double dr;
+
+        try {
+            dx = Double.parseDouble(x);
+            dy = Double.parseDouble(y);
+            dr = Double.parseDouble(r);
+        } catch (NumberFormatException | NullPointerException e) {
+            response.sendError(400);
+            return;
+        }
+
+        boolean result = checkArea(dx, dy, dr);
 
         // Hello
         response.setContentType("text/html;charset=UTF-8");
@@ -68,7 +81,8 @@ public class AreaCheckServlet extends HttpServlet {
         out.close();
     }
 
-    private boolean checkArea(String x, String y, String r) {
+    private boolean checkArea(double x, double y, double r) {
+
         return false;
     }
 }
