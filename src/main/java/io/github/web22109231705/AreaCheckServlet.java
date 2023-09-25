@@ -1,12 +1,16 @@
 package io.github.web22109231705;
 
+import io.github.web22109231705.model.AreaData;
+import io.github.web22109231705.model.UserAreaDatas;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 
 @WebServlet(name = "areaCheckServlet", value = "/area-check")
 public class AreaCheckServlet extends HttpServlet {
@@ -31,11 +35,28 @@ public class AreaCheckServlet extends HttpServlet {
             return;
         }
 
-        boolean result = checkArea(dx, dy, dr);
+        final boolean result = checkArea(dx, dy, dr);
+
+        final HttpSession currentSession = request.getSession();
+        UserAreaDatas datas = (UserAreaDatas) currentSession.getAttribute("points");
+        if (datas == null) {
+            datas = new UserAreaDatas();
+            currentSession.setAttribute("points", datas);
+        }
+        if (datas.getAreaDataList() == null)
+            datas.setAreaDataList(new LinkedList<>());
+
+        final AreaData data = new AreaData();
+        data.setX(dx);
+        data.setY(dy);
+        data.setR(dr);
+        data.setResult(result);
+
+        datas.getAreaDataList().add(data);
 
         // Hello
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        final PrintWriter out = response.getWriter();
 
         out.println("<!DOCTYPE html>");
         out.println("<html lang=\"en\">");
@@ -81,7 +102,9 @@ public class AreaCheckServlet extends HttpServlet {
         out.close();
     }
 
-    private boolean checkArea(double x, double y, double r) {
+    private boolean checkArea(final double x, final double y, final double r) {
+
+
 
         return false;
     }
