@@ -2,22 +2,22 @@ package io.github.web22109231705.model;
 
 import java.beans.JavaBean;
 import java.io.Serializable;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Objects;
 
 @JavaBean
 public class UserAreaDatas implements Serializable {
-    private List<AreaData> areaDataList;
+    private LinkedList<AreaData> areaDataList;
 
     public UserAreaDatas() {
         super();
     }
 
-    public List<AreaData> getAreaDataList() {
+    public LinkedList<AreaData> getAreaDataList() {
         return areaDataList;
     }
 
-    public void setAreaDataList(List<AreaData> areaDataList) {
+    public void setAreaDataList(LinkedList<AreaData> areaDataList) {
         this.areaDataList = areaDataList;
     }
 

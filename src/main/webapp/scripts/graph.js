@@ -105,7 +105,7 @@ elt.addEventListener('click', function (evt) {
     const isSelectedR = tempIsSelected;
 
     if (!isSelectedR) {
-        r_error.textContent = "Please, choose some option above!";
+        r_error.textContent = "For this, choose some option above!";
         r_error.className = ERROR_CLASS_ID_ACTIVATE;
         return;
     }

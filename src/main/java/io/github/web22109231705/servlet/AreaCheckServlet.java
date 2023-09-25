@@ -61,7 +61,7 @@ public class AreaCheckServlet extends HttpServlet {
         data.setCalculationTime(executionTime);
         data.setCalculatedAt(executedAt);
 
-        datas.getAreaDataList().add(data);
+        datas.getAreaDataList().addFirst(data);
 
         // Hello
         response.setContentType("text/html;charset=UTF-8");
