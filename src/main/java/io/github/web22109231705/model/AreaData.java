@@ -9,7 +9,7 @@ public class AreaData implements Serializable {
     private double x;
     private double y;
     private double r;
-    private double result;
+    private boolean result;
 
     public AreaData() {
 
@@ -27,7 +27,7 @@ public class AreaData implements Serializable {
         return r;
     }
 
-    public double getResult() {
+    public boolean getResult() {
         return result;
     }
 
@@ -43,7 +43,7 @@ public class AreaData implements Serializable {
         this.r = r;
     }
 
-    public void setResult(double result) {
+    public void setResult(boolean result) {
         this.result = result;
     }
 
@@ -55,7 +55,7 @@ public class AreaData implements Serializable {
         return Double.compare(this.getX(), areaData.getX()) == 0
                 && Double.compare(this.getY(), areaData.getY()) == 0
                 && Double.compare(this.getR(), areaData.getR()) == 0
-                && Double.compare(this.getResult(), areaData.getResult()) == 0;
+                && Boolean.compare(this.getResult(), areaData.getResult()) == 0;
     }
 
     @Override
