@@ -87,15 +87,15 @@ public class AreaCheckServlet extends HttpServlet {
         out.println("            </tr>");
         out.println("            <tr>");
         out.println("                <td>X</td>");
-        out.println("                <td>" + x + "</td>");
+        out.println("                <td>" + dx + "</td>");
         out.println("            </tr>");
         out.println("            <tr>");
         out.println("                <td>Y</td>");
-        out.println("                <td>" + y + "</td>");
+        out.println("                <td>" + dy + "</td>");
         out.println("            </tr>");
         out.println("            <tr>");
         out.println("                <td>R</td>");
-        out.println("                <td>" + r + "</td>");
+        out.println("                <td>" + dr + "</td>");
         out.println("            </tr>");
         out.println("        </table>");
         out.println("    </div>");
