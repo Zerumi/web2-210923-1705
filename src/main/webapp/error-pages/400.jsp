@@ -12,6 +12,6 @@
     <title>400</title>
   </head>
   <body>
-    <img src="http://http.cat/400.jpg" alt="400">
+    <img src="https://http.cat/400.jpg" alt="400">
   </body>
 </html>

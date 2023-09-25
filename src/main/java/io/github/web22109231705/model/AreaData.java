@@ -12,7 +12,7 @@ public class AreaData implements Serializable {
     private boolean result;
 
     public AreaData() {
-
+        super();
     }
 
     public double getX() {

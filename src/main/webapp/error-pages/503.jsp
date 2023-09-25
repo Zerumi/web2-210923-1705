@@ -12,6 +12,6 @@
     <title>503</title>
   </head>
   <body>
-    <img src="http://http.cat/503.jpg" alt="503">
+    <img src="https://http.cat/503.jpg" alt="503">
   </body>
 </html>

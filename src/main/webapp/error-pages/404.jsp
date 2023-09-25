@@ -12,6 +12,6 @@
         <title>404</title>
     </head>
     <body>
-        <img src="http://http.cat/404.jpg" alt="404">
+        <img src="https://http.cat/404.jpg" alt="404">
     </body>
 </html>

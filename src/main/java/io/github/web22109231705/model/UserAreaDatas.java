@@ -10,7 +10,7 @@ public class UserAreaDatas implements Serializable {
     private List<AreaData> areaDataList;
 
     public UserAreaDatas() {
-
+        super();
     }
 
     public List<AreaData> getAreaDataList() {
