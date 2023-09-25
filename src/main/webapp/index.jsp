@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -9,13 +10,11 @@
   <title>web2-210923-1705</title>
 </head>
   <body>
-    <c:set var="points" value="${sessionScope.get(\"points\")}" />
     <div id="container" class="margin">
       <div id="header" class="blured-container round-container margin">
         <p>web2-210923-1705</p>
         <p>by Afanasyev Kirill Aleksandrovich, group no. P3206</p>
         <p>Variant no. 1611</p>
-        <p>Data from the JavaBean: ${points.toString()}</p>
       </div>
       <div id="main" class="margin">
         <div id="choose" class="blured-container round-container margin">
@@ -85,7 +84,20 @@
                 <th>Execution time</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <c:set var="points" value="${sessionScope.get(\"points\")}" />
+              <jsp:useBean id="points" class="io.github.web22109231705.model.UserAreaDatas" scope="session" />
+              <c:forEach var="areaData" items="${points.areaDataList}">
+                  <tr>
+                    <td>${areaData.x}</td>
+                    <td>${areaData.y}</td>
+                    <td>${areaData.r}</td>
+                    <td>${areaData.result ? "Hit / Success" : "Miss / Fail"}</td>
+                    <td>${areaData.calculatedAt.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))}</td>
+                    <td>${areaData.calculationTime}ns</td>
+                  </tr>
+                </c:forEach>
+            </tbody>
           </table>
         </div>
       </div>

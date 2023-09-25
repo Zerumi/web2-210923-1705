@@ -2,6 +2,7 @@ package io.github.web22109231705.model;
 
 import java.beans.JavaBean;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @JavaBean
@@ -10,6 +11,8 @@ public class AreaData implements Serializable {
     private double y;
     private double r;
     private boolean result;
+    private long calculationTime;
+    private LocalDateTime calculatedAt;
 
     public AreaData() {
         super();
@@ -31,6 +34,14 @@ public class AreaData implements Serializable {
         return result;
     }
 
+    public long getCalculationTime() {
+        return calculationTime;
+    }
+
+    public LocalDateTime getCalculatedAt() {
+        return calculatedAt;
+    }
+
     public void setX(double x) {
         this.x = x;
     }
@@ -47,20 +58,25 @@ public class AreaData implements Serializable {
         this.result = result;
     }
 
+    public void setCalculationTime(long calculationTime) {
+        this.calculationTime = calculationTime;
+    }
+
+    public void setCalculatedAt(LocalDateTime calculatedAt) {
+        this.calculatedAt = calculatedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof AreaData)) return false;
-        AreaData areaData = (AreaData) o;
-        return Double.compare(this.getX(), areaData.getX()) == 0
-                && Double.compare(this.getY(), areaData.getY()) == 0
-                && Double.compare(this.getR(), areaData.getR()) == 0
-                && Boolean.compare(this.getResult(), areaData.getResult()) == 0;
+        AreaData data = (AreaData) o;
+        return Double.compare(getX(), data.getX()) == 0 && Double.compare(getY(), data.getY()) == 0 && Double.compare(getR(), data.getR()) == 0 && getResult() == data.getResult() && getCalculationTime() == data.getCalculationTime() && Objects.equals(getCalculatedAt(), data.getCalculatedAt());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getX(), this.getY(), this.getR(), this.getResult());
+        return Objects.hash(getX(), getY(), getR(), getResult(), getCalculationTime(), getCalculatedAt());
     }
 
     @Override
@@ -70,6 +86,8 @@ public class AreaData implements Serializable {
                 ", y=" + y +
                 ", r=" + r +
                 ", result=" + result +
+                ", calculationTime=" + calculationTime +
+                ", calculatedAt=" + calculatedAt +
                 '}';
     }
 }

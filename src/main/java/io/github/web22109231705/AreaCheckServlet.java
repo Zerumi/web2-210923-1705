@@ -10,12 +10,15 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 @WebServlet(name = "areaCheckServlet", value = "/area-check")
 public class AreaCheckServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        final long startExec = System.nanoTime();
+
         final String ctx = this.getServletContext().getContextPath();
 
         final String x = request.getParameter("x-select");
@@ -46,11 +49,17 @@ public class AreaCheckServlet extends HttpServlet {
         if (datas.getAreaDataList() == null)
             datas.setAreaDataList(new LinkedList<>());
 
+        final long endExec = System.nanoTime();
+        final long executionTime = endExec - startExec;
+        final LocalDateTime executedAt = LocalDateTime.now();
+
         final AreaData data = new AreaData();
         data.setX(dx);
         data.setY(dy);
         data.setR(dr);
         data.setResult(result);
+        data.setCalculationTime(executionTime);
+        data.setCalculatedAt(executedAt);
 
         datas.getAreaDataList().add(data);
 
