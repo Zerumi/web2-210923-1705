@@ -113,8 +113,48 @@ public class AreaCheckServlet extends HttpServlet {
 
     private boolean checkArea(final double x, final double y, final double r) {
 
+        final double firstAreaA = Math.abs(x) / (r / 7) - 3;
+        final double firstSecondAreaA = Math.abs(y / (r / 7) + (double) 3 / 7 * Math.sqrt(33));
+        final double firstSecondAreaB = Math.pow((y / (r / 7)) / 3, 2);
+        final double firstSecondAreaC = Math.sqrt(Math.abs(firstSecondAreaA) / firstSecondAreaA);
+        final boolean firstArea = (y / (r / 7)) >= 0 && Math.pow(x / r, 2)
+                * Math.sqrt(Math.abs(firstAreaA) / (firstAreaA))
+                + firstSecondAreaB
+                * firstSecondAreaC
+                - 1 <= 0;
 
+        final double secondAreaA = Math.abs(x) / (r / 7) - 4;
+        final boolean secondArea = (y / (r / 7)) < 0 && Math.pow(x / r, 2)
+                * Math.sqrt(Math.abs(secondAreaA) / (secondAreaA))
+                + firstSecondAreaB
+                * firstSecondAreaC
+                - 1 <= 0;
 
-        return false;
+        final boolean thirdArea = (y / (r / 7)) < 0 && Math.abs((x / (r / 7)) / 2)
+                - (3 * Math.sqrt(33) - 7) * Math.pow((x / (r / 7)), 2) / 112
+                - 3 + Math.sqrt(1 - Math.pow(Math.abs(Math.abs(x) / (r / 7) - 2) - 1, 2))
+                - y / (r / 7) <= 0;
+
+        final boolean fourthArea = Math.abs(x) / (r / 7) <= 1 && Math.abs(x) / (r / 7) >= 0.75
+                && y / (r / 7) <= 3 && y / (r / 7) >= 0
+                && 9 - 8 * Math.abs(x) / (r / 7) >= y / (r / 7);
+
+        final boolean fifthArea = y / (r / 7) >= 0
+                && Math.abs(x) / (r / 7) <= 0.75 && Math.abs(x) / (r / 7) >= 0.5
+                && 3 * Math.abs(x) / (r / 7) + 0.75 >= y / (r / 7);
+
+        final boolean sixthArea = x / (r / 7) <= 0.5 && x / (r / 7) >= -0.5
+                && y / (r / 7) >= 0
+                && y / (r / 7) <= 2.25;
+
+        final double seventhAreaA = Math.abs(x) / (r / 7) - 1;
+        final boolean seventhArea = y / (r / 7) >= 0 && 6 * Math.sqrt(10) / 7
+                + (1.5 - 0.5 * Math.abs(x) / (r / 7))
+                * Math.sqrt(Math.abs(seventhAreaA) / seventhAreaA)
+                - 6 * Math.sqrt(10) / 14
+                * Math.sqrt(4 - Math.pow(seventhAreaA, 2)) >= y / (r / 7);
+
+        return firstArea || secondArea || thirdArea
+                || fourthArea || fifthArea || sixthArea || seventhArea;
     }
 }
