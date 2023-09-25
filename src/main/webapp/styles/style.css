@@ -175,6 +175,11 @@ input[type=button].selected {
     -webkit-backdrop-filter: blur(10px);
 }
 
+.fit-content-container {
+    width: fit-content;
+    height: fit-content;
+}
+
 #container {
     height: 100%;
     display: flex;
