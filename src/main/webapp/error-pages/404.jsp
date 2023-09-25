@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
-        <link rel="stylesheet" href="../styles/error.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/error.css">
         <title>404</title>
     </head>
     <body>
