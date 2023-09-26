@@ -16,7 +16,7 @@
       <div id="header" class="blured-container round-container margin">
         <p>web2-210923-1705</p>
         <p>by Afanasyev Kirill Aleksandrovich, group no. P3206</p>
-        <p>Variant no. 1611</p>
+        <p>Variant no. 1705</p>
       </div>
       <div id="main" class="margin">
         <div id="choose" class="blured-container round-container margin">
