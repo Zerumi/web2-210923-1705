@@ -64,7 +64,7 @@ a:active {
     text-decoration: underline;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
+input[type=button], input[type=submit], input[type=reset], button {
     background-color: #F0D6A3;
     border: solid 1px black;
     border-radius: 4px;
@@ -218,6 +218,10 @@ input[type=button].selected {
     float: left;
     width: fit-content;
     height: fit-content;
+}
+
+#clear-table-container {
+    margin-bottom: 2%;
 }
 
 #submit-container {

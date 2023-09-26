@@ -1,3 +1,5 @@
+let graph_click_enabled = false;
+const enable_graph_button = document.getElementById('enable-graph');
 const elt = document.getElementById('graph');
 const calculator = Desmos.GraphingCalculator(elt, {
     keypad: false,
@@ -90,16 +92,28 @@ function inRectangle(point, rect) {
     )
 }
 
-elt.addEventListener('click', function (evt) {
+function enable_graph() {
+    if (graph_click_enabled) {
+        elt.removeEventListener('click', handleGraphClick);
+        graph_click_enabled = false;
+        enable_graph_button.textContent = "Enable graph aiming";
+    } else {
+        elt.addEventListener('click', handleGraphClick);
+        graph_click_enabled = true;
+        enable_graph_button.textContent = "Disable graph aiming";
+    }
+}
+
+function handleGraphClick (evt) {
 
     let tempIsSelected = false;
     let tempR;
 
     radioButtons.forEach(rb => {
-       if (rb.checked) {
-           tempIsSelected = true;
-           tempR = rb.value;
-       }
+        if (rb.checked) {
+            tempIsSelected = true;
+            tempR = rb.value;
+        }
     });
 
     const isSelectedR = tempIsSelected;
@@ -125,4 +139,4 @@ elt.addEventListener('click', function (evt) {
     console.log(mathCoordinates);
 
     send_intersection_rq(mathCoordinates.x, mathCoordinates.y, r);
-});
+}

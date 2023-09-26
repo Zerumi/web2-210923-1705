@@ -10,6 +10,7 @@
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <link rel="stylesheet" href="styles/style.css">
   <title>web2-210923-1705</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
   <body>
     <div id="container" class="margin">
@@ -70,6 +71,17 @@
               <input type="submit" id="submit-button" value="Get disappointed in your life">
             </div>
           </form>
+          <div id="another-way-container" class="select-container margin">
+            <label for="enable-graph">Or...</label>
+            <button id="enable-graph" onclick="enable_graph()">Enable graph aiming</button>
+          </div>
+            <form action="${pageContext.request.contextPath}/controller" method="get">
+              <input type="hidden" name="clear" value="1" />
+              <div id="clear-table-container" class="select-container margin">
+                <label for="enable-graph">You may also</label>
+                <input type="submit" id="clear-table" value="Clear table" />
+              </div>
+            </form>
         </div>
         <div id="graph-container" class="blured-container round-container margin">
           <div id="graph"></div>
