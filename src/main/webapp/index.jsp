@@ -10,7 +10,6 @@
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <link rel="stylesheet" href="styles/style.css">
   <title>web2-210923-1705</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
   <body>
     <div id="container" class="margin">
