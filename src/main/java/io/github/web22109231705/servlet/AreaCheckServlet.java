@@ -16,7 +16,7 @@ import java.util.LinkedList;
 @WebServlet(name = "areaCheckServlet", value = "/area-check")
 public class AreaCheckServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
         final long startExec = System.nanoTime();
 
         final String ctx = this.getServletContext().getContextPath();

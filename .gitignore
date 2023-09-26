@@ -44,3 +44,5 @@ bin/
 ### my files ###
 page-templates/*
 /page-templates/
+
+qodana.sarif.json

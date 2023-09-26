@@ -10,11 +10,11 @@ import java.io.IOException;
 
 @WebServlet(name = "controllerServlet", value = "/controller")
 public class ControllerServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
         String forwardPath = getServletContext().getContextPath();
 
         if (request.getParameter("clear") != null) {
-            HttpSession session = request.getSession();
+            final HttpSession session = request.getSession();
             session.invalidate();
         }
 
