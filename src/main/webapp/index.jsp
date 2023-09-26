@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="points" value="${sessionScope.get(\"points\")}" />
+<%-- <c:set var="points" value="${sessionScope.get(\"points\")}" /> --%>
 <jsp:useBean id="points" class="io.github.web22109231705.model.UserAreaDatas" scope="session" />
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
