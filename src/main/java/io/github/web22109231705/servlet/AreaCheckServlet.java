@@ -103,7 +103,7 @@ public class AreaCheckServlet extends HttpServlet {
         out.println("        <p>Result: " + (result ? "Right in target!" : "Are you a bad shooter? No problem! Fortunately, the armed forces of the Russian Federation invite men to military service under contract. Call 117!") + "</p>");
         out.println("    </div>");
         out.println("    <div class=\"blured-container round-container fit-content-container margin\">"); // Здесь подставьте результат вычислений
-        out.println("        <p><a href=\"" + ctx + "\">Return to homepage</a></p>");
+        out.println("        <p><a href=\"" + ctx + "\\controller\">Return to homepage</a></p>");
         out.println("    </div>");
         out.println("</body>");
         out.println("</html>");
